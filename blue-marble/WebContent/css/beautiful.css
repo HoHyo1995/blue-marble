@@ -1,0 +1,36 @@
+.marble_board {
+	background-image: url("/blue-marble/images/b2.png");
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: 100%;
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+}
+td {
+	border: none !important;
+}
+.boaard_floor {
+	background: lightblue;
+}
+#oneDice, #twoDice {
+	width: 80px;
+    height: 80px;
+}
+/*
+플레이어들의 말
+*/
+.picture {
+	width: 50px;
+    height: 50px;
+}
+#startBtn {
+	
+}
+.selectPeopleBtn {
+	
+}
+.selectPeople {
+	
+}
+td { 
+	border: none !important;
+}
