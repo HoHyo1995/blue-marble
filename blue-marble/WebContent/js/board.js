@@ -16,7 +16,7 @@
 				desertIsland : 0,
 				// 시작 돈
 				money : 3000000,
-				// 바퀴 수 (1바퀴를 돌때마다 월급 20만원을 받을 수 있다)
+				// 바퀴 수 (1바퀴를 돌때마다 월급 20만원을 받을 수 있다)****** 나중에 필요할 듯 하다
 				turn : 0,
 				// 월급 유무 판단(1이 되면 월급을 받아서 2부터시작하고 사회복지기금 접수처를 지나면 0이된다 )
 				salaryCount : 2
@@ -78,12 +78,12 @@
 				console.log("player4");
 			}
 			// 주사위 1~6 두개
-			let dic1 = Math.floor((Math.random() * 6) + 1);
-			//let dic1 = 1; // 실험
+			//let dic1 = Math.floor((Math.random() * 6) + 1);
+			let dic1 = 1; // 실험
 			$("#oneDice").show();
 			$("#oneDice").attr("src","/blue-marble/images/"+dic1+".jpg");
-			let dic2 = Math.floor((Math.random() * 6) + 1);
-			//let dic2 = 1; // 실험
+			//let dic2 = Math.floor((Math.random() * 6) + 1);
+			let dic2 = 1; // 실험
 			$("#twoDice").show();
 			$("#twoDice").attr("src","/blue-marble/images/"+dic2+".jpg");
 			document.querySelector("#dice").value = dic1+dic2;
@@ -166,6 +166,7 @@
 							walking.nowPoint = 0;
 							console.log("더블");
 							pl = pl-1;	
+							walking.desertIsland = 0;
 						} else{
 							console.log("더블");
 							pl = pl-1;	
