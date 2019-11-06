@@ -15,7 +15,11 @@
 				// 무인도(2가되면 0으로 초기화 되어 다음턴에 탈출이 가능합니다.)
 				desertIsland : 0,
 				// 시작 돈
-				money : 3000000
+				money : 3000000,
+				// 바퀴 수 (1바퀴를 돌때마다 월급 20만원을 받을 수 있다)
+				turn : 0,
+				// 월급 유무 판단(1이 되면 월급을 받아서 2부터시작하고 사회복지기금 접수처를 지나면 0이된다 )
+				salaryCount : 2
 			}
 		let player2 = {
 				beforePoint : 21,
@@ -25,7 +29,9 @@
 				beforeId : "#p21",
 				picture : "p2",
 				desertIsland : 0,
-				money : 3000000
+				money : 3000000,
+				turn : 0,
+				salaryCount : 2
 			}
 		let player3 = {
 				beforePoint : 21,
@@ -35,7 +41,9 @@
 				beforeId : "#p21",
 				picture : "p3",
 				desertIsland : 0,
-				money : 3000000
+				money : 3000000,
+				turn : 0,
+				salaryCount : 2
 			}
 		let player4 = {
 				beforePoint : 21,
@@ -45,7 +53,9 @@
 				beforeId : "#p21",
 				picture : "p4",
 				desertIsland : 0,
-				money : 3000000
+				money : 3000000,
+				turn : 0,
+				salaryCount : 2
 			}
 		
 		$("#oneDice").hide();
@@ -171,6 +181,22 @@
 		walking.beforeId = "#p" + walking.beforePoint;
 		$("."+walking.picture).remove();
 		$(walking.afterId).append("<input type = 'image' src='/blue-marble/images/"+walking.picture+".png' class='picture "+walking.picture+"'>");
+		// 월급 기능
+		if(walking.afterPoint >= 21) {
+			walking.salaryCount = walking.salaryCount+1;
+			if(walking.salaryCount == 1) {
+				walking.turn = walking.turn+1;
+				walking.money = walking.money+200000;
+				walking.salaryCount = walking.salaryCount+1;
+				alert(walking.picture+"님월급 20만원이 들어왔습니다.");
+				//console.log("salaryCount",walking.salaryCount);
+				console.log(walking.picture,"님의money는",walking.money);
+				console.log(walking.picture,"님의turn 횟수는",walking.turn);
+			}
+		} else if(walking.afterPoint<21) {
+			walking.salaryCount = 0;
+			//console.log("salaryCount",walking.salaryCount);
+		}
 		walking.beforePoint = walking.afterPoint;
 		walking.nowPoint = walking.beforePoint;
 		}
