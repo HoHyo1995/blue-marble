@@ -84,9 +84,7 @@
 				console.log("afterPoint", walking.afterPoint);
 			} else {
 				walking.afterPoint = walking.beforePoint + (totalDice) - 40;
-				console.log("완주");
-			}
-			
+			}	
 			document.querySelector("#point").value = walking.afterPoint;
 			// 무인도를 밟았을 시 
 			if(walking.nowPoint == 31) {
