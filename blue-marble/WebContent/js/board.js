@@ -3,6 +3,7 @@
 		let currentPeople = 0;
 		let pl = 1;
 		let walking = {};
+		let socialWelfareFund = 0;
 		let player1 = {
 				beforePoint : 21,
 				afterPoint : 21,
@@ -78,12 +79,12 @@
 				console.log("player4");
 			}
 			// 주사위 1~6 두개
-			//let dic1 = Math.floor((Math.random() * 6) + 1);
-			let dic1 = 1; // 실험
+			let dic1 = Math.floor((Math.random() * 6) + 1);
+			//let dic1 = 1; // 실험
 			$("#oneDice").show();
 			$("#oneDice").attr("src","/blue-marble/images/"+dic1+".jpg");
-			//let dic2 = Math.floor((Math.random() * 6) + 1);
-			let dic2 = 1; // 실험
+			let dic2 = Math.floor((Math.random() * 6) + 1);
+			//let dic2 = 1; // 실험
 			$("#twoDice").show();
 			$("#twoDice").attr("src","/blue-marble/images/"+dic2+".jpg");
 			document.querySelector("#dice").value = dic1+dic2;
@@ -113,12 +114,15 @@
 					walking.nowPoint = 0;
 					playerChangeDouble(dic1,dic2);
 				}
-			} else if(walking.nowPoint != 31){
+			} else if(walking.nowPoint != 31){ // 평소에  말 이동
 				// 말을 이동시킵니다.
 				moveing();
+				// 돈 내는 곳
+				payFund();
+				// 돈 받는곳
+				receiveFund();
 				playerChangeDouble(dic1,dic2);
 			}
-			
 			
 			
 			});
@@ -202,11 +206,34 @@
 				//console.log("salaryCount",walking.salaryCount);
 			}
 		}
+		// 사회복지기금(19)을 밟았을 시 사회복지기금을 내야하는 메소드
+		function payFund(){
+			if(walking.nowPoint == 19){
+				walking.money = walking.money-150000;
+				socialWelfareFund = socialWelfareFund+150000;
+				console.log(walking.picture,"money는",walking.money);
+				console.log("socialWelfareFund(사회복지기금)",socialWelfareFund);
+			}
+		}
+		// 사회복지기금(1)을 밟았을 시 모여진 사회복지기금을 받는 메소드
+		function receiveFund() {
+			if(walking.nowPoint == 1){
+				if(socialWelfareFund != 0){
+					walking.money = walking.money + socialWelfareFund;
+					socialWelfareFund = 0;
+					console.log(walking.picture,"money는",walking.money);
+					console.log("socialWelfareFund(사회복지기금)",socialWelfareFund);
+				}else{
+					console.log("축적된 사회복지기금이 0원 입니다.")
+				}
+			}
+		}	
 		
 		//------------------------------------------------------------------------------맵 데이터
 		let map =[{title : "사회복지기금", point : 19, owner : null, money : 0},
 			{title : "사회복지기금접수처", point : 1, owner : null, money :0 }
 		];
 		map[1].money = map[0].money;
+		
 		//--------------------------------------------------------------맵데이터 끝
 	});
