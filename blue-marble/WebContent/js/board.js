@@ -230,8 +230,10 @@
 		}	
 		
 		//------------------------------------------------------------------------------맵 데이터
-		let map =[{title : "사회복지기금", point : 19, owner : null, money : 0},
-			{title : "사회복지기금접수처", point : 1, owner : null, money :0 }
+		let map =[{title : "사회복지기금", point : 19, owner : null, purchase : 0, toll : 0},
+			{title : "사회복지기금접수처", point : 1, owner : null, purchase : 0, toll : 0 },
+			{title : "우주여행", point : 11, owner : null, purchase : 0, toll: 0},
+			{title : "컬럼비아호", point : 13, owner : null, purchase : 450000, toll: 400000}
 		];
 		map[1].money = map[0].money;
 		
