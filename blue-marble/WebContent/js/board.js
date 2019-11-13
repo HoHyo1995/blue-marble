@@ -78,12 +78,12 @@
 				console.log("player4");
 			}
 			// 주사위 1~6 두개
-			//let dic1 = Math.floor((Math.random() * 6) + 1);
-			let dic1 = 1; // 실험
+			let dic1 = Math.floor((Math.random() * 6) + 1);
+			//let dic1 = 1; // 실험
 			$("#oneDice").show();
 			$("#oneDice").attr("src","/blue-marble/images/"+dic1+".jpg");
-			//let dic2 = Math.floor((Math.random() * 6) + 1);
-			let dic2 = 1; // 실험
+			let dic2 = Math.floor((Math.random() * 6) + 1);
+			//let dic2 = 1; // 실험
 			$("#twoDice").show();
 			$("#twoDice").attr("src","/blue-marble/images/"+dic2+".jpg");
 			document.querySelector("#dice").value = dic1+dic2;
@@ -202,47 +202,6 @@
 		walking.nowPoint = walking.beforePoint;
 		}
 		//------------------------------------------------------------------------------맵 데이터
-		let MapData = [
-			{type : null , title : null},
-			{type : "money" , title : "사회복지"},
-			{type : "city" , title : "부에노스", owner : null},
-			{type : "chance", title : "황금열쇠"},
-			{type : "city" , title : "상파울루", owner : null},
-			{type : "city" , title : "시드니", owner : null},
-			{type : "island" , title : "부산", owner : null},
-			{type : "city" , title : "하와이", owner : null},
-			{type : "city" , title : "리스본", owner : null},
-			{type : "island" , title : "엘리자베스", owner : null},
-			{type : "city" , title : "마드리드", owner : null},
-			{type : "space" , title : "우주여행"},
-			{type : "city" , title : "도쿄", owner : null},
-			{type : "island" , title : "컬럼비아호", owner : null},
-			{type : "city" , title : "파리", owner : null},
-			{type : "city" , title : "로마", owner : null},
-			{type : "chance" , title : "황금열쇠"},
-			{type : "city" , title : "런던", owner : null},
-			{type : "city" , title : "뉴욕", owner : null},
-			{type : "pay" , title : "기부"},
-			{type : "island" , title : "서울", owner : null},
-			{type : "home" , title : "출발지"},
-			{type : "city" , title : "타이베이", owner : null},
-			{type : "chance" , title : "황금열쇠"},
-			{type : "city" , title : "베이징", owner : null},
-			{type : "city" , title : "마닐라", owner : null},
-			{type : "island" , title : "제주", owner : null},
-			{type : "city" , title : "싱가포르", owner : null},
-			{type : "chance" , title : "황금열쇠"},
-			{type : "city" , title : "카이로", owner : null},
-			{type : "city" , title : "이스탄불", owner : null},
-			{type : "desert_island" , title : "무인도"},
-			{type : "city" , title : "아테네", owner : null},
-			{type : "chance" , title : "황금열쇠"},
-			{type : "city" , title : "코펜하겐", owner : null},
-			{type : "city" , title : "스톡홀름", owner : null},
-			{type : "island" , title : "여객기"},
-			{type : "city" , title : "베른", owner : null},
-			{type : "city" , title : "베를린", owner : null},
-			{type : "city" , title : "오타와", owner : null}
-		];
+		
 		//--------------------------------------------------------------맵데이터 끝
 	});
