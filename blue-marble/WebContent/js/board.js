@@ -78,12 +78,12 @@
 				console.log("player4");
 			}
 			// 주사위 1~6 두개
-			let dic1 = Math.floor((Math.random() * 6) + 1);
-			//let dic1 = 1; // 실험
+			//let dic1 = Math.floor((Math.random() * 6) + 1);
+			let dic1 = 1; // 실험
 			$("#oneDice").show();
 			$("#oneDice").attr("src","/blue-marble/images/"+dic1+".jpg");
-			let dic2 = Math.floor((Math.random() * 6) + 1);
-			//let dic2 = 1; // 실험
+			//let dic2 = Math.floor((Math.random() * 6) + 1);
+			let dic2 = 1; // 실험
 			$("#twoDice").show();
 			$("#twoDice").attr("src","/blue-marble/images/"+dic2+".jpg");
 			document.querySelector("#dice").value = dic1+dic2;
@@ -102,30 +102,28 @@
 				if(walking.desertIsland == 0){
 					console.log("무인도1");
 					walking.desertIsland = walking.desertIsland+1;
-					playerChange();
-					doubleDice(dic1,dic2);
+					playerChangeDouble(dic1,dic2);
 				}else if(walking.desertIsland == 1){
 					console.log("무인도2");
 					walking.desertIsland = walking.desertIsland+1;
-					playerChange();
-					doubleDice(dic1,dic2);
+					playerChangeDouble(dic1,dic2);
 				}else if(walking.desertIsland == 2){
 					console.log("무인도3");
 					walking.desertIsland = 0;
 					walking.nowPoint = 0;
-					playerChange();
-					doubleDice(dic1,dic2);
+					playerChangeDouble(dic1,dic2);
 				}
 			} else if(walking.nowPoint != 31){
 				// 말을 이동시킵니다.
 				moveing();
-				playerChange();
-				doubleDice(dic1,dic2);
+				playerChangeDouble(dic1,dic2);
 			}
 			
 			
 			
 			});
+		
+		
 		$(".selectPeopleBtn").hide();
 		// 게임시작버튼 누를시
 		$("#startBtn").click(function(){
@@ -148,15 +146,13 @@
 			});
 			
 		});
-		// 플레이어 차례 바꾸는 메소드(더블일 경우 항상 doubleDice함수보다 먼저 나와야한다)
-		function playerChange() {
+		// 플레이어 차례 바꾸는 메소드+더블
+		function playerChangeDouble(dic1, dic2) {
 			pl = pl+1;
 			if(pl>currentPeople) {
 				pl = 1;
 			}
-		}
-		// 주사위 더블일 경우 현 플레이어가 한번 더 하는 메소드
-		function doubleDice(dic1, dic2) {
+			// 주사위 더블일 경우 현 플레이어가 한번 더 하는 함수
 			if(dic1 == dic2) {
 				// 중첩if는 더블로 무인도에 들어 갈 경우 다음 타자에게 바로넘긴다.
 				if(walking.afterPoint == 31) {
@@ -171,12 +167,12 @@
 						} else{
 							console.log("더블");
 							pl = pl-1;	
-						}
-					
+						}	
 				}
-				
 			}
 		}
+		
+		
 		// 말을 이동시키는 함수
 		function moveing(){
 		walking.afterId = "#p" + walking.afterPoint;
